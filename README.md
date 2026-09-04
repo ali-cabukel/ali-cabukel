@@ -36,6 +36,7 @@ Small, focused tools for production LLM and ML work.
 
 | Project                                                           | What it does                                                                                                                                                                                                    |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[threadneedle](https://github.com/ali-cabukel/threadneedle)**   | UK macro policy RAG over Bank of England, ONS and HM Treasury sources — Docling parsing, header-aware chunking into Chroma, and a LangGraph tool-calling agent that filters by document edition and pulls live ONS figures rather than quoting stale PDF numbers |
 | **[waggle](https://github.com/ali-cabukel/waggle)**               | Agentic web scraping platform — plan / execute / repair loop over Playwright, crawl4ai, and remote CDP engines, with scheduled runs, a Celery job backend, and a WebSocket chatbot over the scraped store |
 | **[tradenet-chat](https://github.com/ali-cabukel/tradenet-chat)** | Conversational agent generating read-only Cypher against a Neo4j trade graph (FastAPI + React, OpenAI or local Ollama)                                                                                          |
 | **[tissue-bot](https://github.com/ali-cabukel/tissue-bot)**       | Collects GitHub repo and issue data, then analyses and resolves issues with LangGraph agents (FastAPI + Next.js)                                                                                                |
@@ -57,7 +58,7 @@ Small, focused tools for production LLM and ML work.
 
 **Backend & data** · FastAPI · Flask · SQLAlchemy · PostgreSQL · SQLite · MongoDB · Neo4j · Redis · Kafka · Celery · Spark
 
-**GenAI** · LangGraph · LangChain · Google ADK · agentic browser automation (Playwright, crawl4ai, CDP) · RAG · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
+**GenAI** · LangGraph · LangChain · Google ADK · agentic browser automation (Playwright, crawl4ai, CDP) · RAG (Docling, header-aware chunking, incremental indexing) · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
 
 **MLOps** · Kubeflow Pipelines · Airflow · dbt · Feast · MLflow · BentoML · Evidently (drift) · DVC
 
