@@ -10,7 +10,7 @@ The repos here are where I work through the problems that show up when models me
 
 ---
 
-## Featured — end-to-end MLOps
+## Featured
 
 **[ecommerce-conversion-pipeline](https://github.com/ali-cabukel/ecommerce-conversion-pipeline)** — real-time purchase-conversion scoring, built as a full production stack rather than a notebook.
 
@@ -19,6 +19,14 @@ Kafka events land session features in Redis via Feast `push`, joined at serve ti
 Point-in-time correct features, offline/online parity, a promotion gate, drift detection, and pre-commit security scanning (bandit, gitleaks, sqlfluff).
 
 `Kafka` · `dbt` · `Airflow` · `Feast` · `Redis` · `MLflow` · `BentoML` · `Evidently` · `Prometheus` · `Grafana` · `DVC`
+
+**[crashquery](https://github.com/ali-cabukel/crashquery)** — an agentic text-to-SQL system over the UK STATS19 road casualty database, built around the ways text-to-SQL fails in production.
+
+STATS19 stores coded integers with the dictionary in a separate spreadsheet, so the agent has to retrieve metadata rather than pattern-match column names. Schema is exposed as tools instead of pasted into the prompt, so context is paid for on demand. Execution runs as a read-only Postgres role behind a statement timeout, a `sqlglot` parse guard, and an EXPLAIN cost gate — four layers, with the role as the actual boundary and the parser only there for good error messages.
+
+Evaluation scores by execution match against reference SQL, and asserts on behaviour: a case answered correctly without consulting the code dictionary was answered by luck. The gold set targets specific traps — wrong table grain, missing-value codes stored as numbers, a methodology break mid-series.
+
+`LangChain` · `Postgres` · `sqlglot` · `Docker` · `Poetry`
 
 ---
 
@@ -58,7 +66,7 @@ Small, focused tools for production LLM and ML work.
 
 **Backend & data** · FastAPI · Flask · SQLAlchemy · PostgreSQL · SQLite · MongoDB · Neo4j · Redis · Kafka · Celery · Spark
 
-**GenAI** · LangGraph · LangChain · Google ADK · agentic browser automation (Playwright, crawl4ai, CDP) · RAG (Docling, header-aware chunking, incremental indexing) · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
+**GenAI** · LangGraph · LangChain · Google ADK · text-to-SQL and text-to-Cypher agents · agentic browser automation (Playwright, crawl4ai, CDP) · RAG (Docling, header-aware chunking, incremental indexing) · agent evaluation harnesses · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
 
 **MLOps** · Kubeflow Pipelines · Airflow · dbt · Feast · MLflow · BentoML · Evidently (drift) · DVC
 
