@@ -4,11 +4,21 @@
 
 I build and ship GenAI systems at scale: agentic pipelines, RAG applications, and the MLOps tooling that keeps them running in production. Currently at Vodafone Group in London, where I lead cross-functional delivery teams across customer experience, contact centre, pricing, and sales AI products.
 
-The repos here are where I work through the problems that show up when LLMs meet production — structured output that has to parse, prompts that have to keep behaving after a model change, models that fail quietly.
+The repos here are where I work through the problems that show up when models meet production — features that must match between training and serving, prompts that have to keep behaving after a model change, and models that fail quietly.
 
 [Build log & notes →](https://ali-cabukel.github.io)
 
 ---
+
+## Featured — end-to-end MLOps
+
+**[ecommerce-conversion-pipeline](https://github.com/ali-cabukel/ecommerce-conversion-pipeline)** — real-time purchase-conversion scoring, built as a full production stack rather than a notebook.
+
+Kafka events land session features in Redis via Feast `push`, joined at serve time with batch user/product/seller features materialised from a dbt warehouse. Airflow runs the daily path — dbt → Feast → drift check → train → validate — and blocks promotion when test ROC-AUC falls below threshold. Evidently compares live feature distributions (PSI) against the snapshot written at training time. BentoML serves `/predict`; Prometheus and Grafana track latency, error class, and score distribution.
+
+Point-in-time correct features, offline/online parity, a promotion gate, drift detection, and pre-commit security scanning (bandit, gitleaks, sqlfluff).
+
+`Kafka` · `dbt` · `Airflow` · `Feast` · `Redis` · `MLflow` · `BentoML` · `Evidently` · `Prometheus` · `Grafana` · `DVC`
 
 ## Libraries
 
@@ -46,7 +56,9 @@ Small, focused tools for production LLM and ML work.
 
 **GenAI** · LangGraph · LangChain · Google ADK · RAG · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
 
-**Cloud & MLOps** · GCP (Vertex AI, Kubeflow Pipelines, BigQuery, Cloud Run, GKE, Dataflow, Cloud Data Fusion) · Azure · Docker · Terraform · GitHub Actions
+**MLOps** · Kubeflow Pipelines · Airflow · dbt · Feast · MLflow · BentoML · Evidently (drift) · DVC
+
+**Cloud & infra** · GCP (Vertex AI, BigQuery, Cloud Run, GKE, Dataflow, Cloud Data Fusion) · Azure · Docker · Terraform · GitHub Actions · Prometheus · Grafana
 
 **Frontend** · React · Next.js
 
