@@ -70,7 +70,7 @@ Small, focused tools for production LLM and ML work.
 
 **Local inference** · Ollama · LM Studio
 
-**Rapid prototyping** · Lovable · v0
+**Rapid prototyping** · Lovable · v0 · Supabase
 
 I use agents throughout the development lifecycle — scaffolding, refactoring, and test generation — and run models locally when working with data that shouldn't leave the machine.
 
