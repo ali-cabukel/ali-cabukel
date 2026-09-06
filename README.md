@@ -28,6 +28,14 @@ Evaluation scores by execution match against reference SQL, and asserts on behav
 
 `LangChain` · `Postgres` · `sqlglot` · `Docker` · `Poetry`
 
+**[hailstorm](https://github.com/ali-cabukel/hailstorm)** — distributed hyperparameter search with Ray, Optuna and XGBoost, demonstrated on NYC taxi tip-percentage prediction.
+
+Ray Data handles Parquet ingest and feature engineering so nothing lands on the driver; Optuna proposes configs by TPE and ASHA prunes bad trials at ~50 boosting rounds instead of 2000, which is where the wall-clock saving comes from. Trials share one `ray.put` copy of the data zero-copy.
+
+The modelling decisions are the point: `total_amount` is excluded because it contains the target (asserted in code, not in a comment), the split is temporal with validation strictly between train and test so early stopping can't leak, and categorical vocabularies are pinned rather than inferred per shard — otherwise integer codes stop meaning the same thing across Ray workers. Two silent distributed failures are documented: the Ray Train / Ray Data CPU deadlock, and ASHA no-op'ing when trials report only once.
+
+`Ray Tune` · `Ray Train` · `Ray Data` · `Optuna` · `ASHA` · `XGBoost`
+
 ---
 
 ## Libraries
@@ -67,6 +75,8 @@ Small, focused tools for production LLM and ML work.
 **Backend & data** · FastAPI · Flask · SQLAlchemy · PostgreSQL · SQLite · MongoDB · Neo4j · Redis · Kafka · Celery · Spark
 
 **GenAI** · LangGraph · LangChain · Google ADK · text-to-SQL and text-to-Cypher agents · agentic browser automation (Playwright, crawl4ai, CDP) · RAG (Docling, header-aware chunking, incremental indexing) · agent evaluation harnesses · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
+
+**ML & distributed training** · XGBoost · scikit-learn · Ray (Tune, Train, Data) · Optuna · ASHA · distributed HPO
 
 **MLOps** · Kubeflow Pipelines · Airflow · dbt · Feast · MLflow · BentoML · Evidently (drift) · DVC
 
