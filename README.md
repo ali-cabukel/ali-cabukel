@@ -59,10 +59,11 @@ Small, focused tools for production LLM and ML work.
 | **[tissue-bot](https://github.com/ali-cabukel/tissue-bot)**       | Collects GitHub repo and issue data, then analyses and resolves issues with LangGraph agents (FastAPI + Next.js)                                                                                                |
 | **[marti-io](https://github.com/ali-cabukel/marti-io)**           | Multi-agent personal assistant hub (FastAPI + LangGraph)                                                                                                                                                       |
 
-## Training & evaluation
+## ML platform & training
 
 | Project | What it does |
 | --- | --- |
+| **[warp](https://github.com/ali-cabukel/warp)** | Copier template for Vertex AI Pipelines (KFP v2) classification projects on BigQuery ML — generates the pipelines, Terraform for GCS, Artifact Registry, Pub/Sub, Cloud Run, Scheduler and IAM, and Cloud Build triggers for PR checks, apply and release. `copier update` propagates template changes into projects already generated from it |
 | **[spider-lora](https://github.com/ali-cabukel/spider-lora)** | LoRA fine-tuning for text-to-SQL on Spider, graded by execution accuracy — result-set comparison rather than string match, with timeouts, value normalisation, and unscorable items quarantined out of the denominator. One config runs on Apple Silicon (MPS) or CUDA |
 
 ## Data & analysis
@@ -85,9 +86,9 @@ Small, focused tools for production LLM and ML work.
 
 **ML & distributed training** · XGBoost · scikit-learn · Ray (Tune, Train, Data) · Optuna · ASHA · distributed HPO · LoRA/PEFT fine-tuning (MPS and CUDA)
 
-**MLOps** · Kubeflow Pipelines · Airflow · dbt · Feast · MLflow · BentoML · Evidently (drift) · DVC
+**MLOps** · Kubeflow Pipelines (KFP v2) · Vertex AI Pipelines · Airflow · dbt · Feast · MLflow · BentoML · Evidently (drift) · DVC · project scaffolding with Copier
 
-**Cloud & infra** · GCP (Vertex AI, BigQuery, Cloud Run, GKE, Dataflow, Cloud Data Fusion) · Azure · Docker · Terraform · GitHub Actions · Prometheus · Grafana
+**Cloud & infra** · GCP (Vertex AI, BigQuery, BigQuery ML, Cloud Run, GKE, Dataflow, Cloud Data Fusion, Pub/Sub, Cloud Scheduler, Artifact Registry) · Azure · Docker · Terraform · Cloud Build · GitHub Actions · Prometheus · Grafana
 
 **Frontend** · React · Next.js
 
