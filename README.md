@@ -54,9 +54,16 @@ Small, focused tools for production LLM and ML work.
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **[threadneedle](https://github.com/ali-cabukel/threadneedle)**   | UK macro policy RAG over Bank of England, ONS and HM Treasury sources — Docling parsing, header-aware chunking into Chroma, and a LangGraph tool-calling agent that filters by document edition and pulls live ONS figures rather than quoting stale PDF numbers |
 | **[waggle](https://github.com/ali-cabukel/waggle)**               | Agentic web scraping platform — plan / execute / repair loop over Playwright, crawl4ai, and remote CDP engines, with scheduled runs, a Celery job backend, and a WebSocket chatbot over the scraped store |
+| **[klaxon](https://github.com/ali-cabukel/klaxon)**                 | Incident management desk — SQLite issue store behind a FastAPI REST surface, the same tools exposed in-process or over MCP stdio, and a LangGraph agent driven by Slack slash commands with HMAC verification and 3-second ack |
 | **[tradenet-chat](https://github.com/ali-cabukel/tradenet-chat)** | Conversational agent generating read-only Cypher against a Neo4j trade graph (FastAPI + React, OpenAI or local Ollama)                                                                                          |
 | **[tissue-bot](https://github.com/ali-cabukel/tissue-bot)**       | Collects GitHub repo and issue data, then analyses and resolves issues with LangGraph agents (FastAPI + Next.js)                                                                                                |
 | **[marti-io](https://github.com/ali-cabukel/marti-io)**           | Multi-agent personal assistant hub (FastAPI + LangGraph)                                                                                                                                                       |
+
+## Training & evaluation
+
+| Project | What it does |
+| --- | --- |
+| **[spider-lora](https://github.com/ali-cabukel/spider-lora)** | LoRA fine-tuning for text-to-SQL on Spider, graded by execution accuracy — result-set comparison rather than string match, with timeouts, value normalisation, and unscorable items quarantined out of the denominator. One config runs on Apple Silicon (MPS) or CUDA |
 
 ## Data & analysis
 
@@ -74,9 +81,9 @@ Small, focused tools for production LLM and ML work.
 
 **Backend & data** · FastAPI · Flask · SQLAlchemy · PostgreSQL · SQLite · MongoDB · Neo4j · Redis · Kafka · Celery · Spark
 
-**GenAI** · LangGraph · LangChain · Google ADK · text-to-SQL and text-to-Cypher agents · agentic browser automation (Playwright, crawl4ai, CDP) · RAG (Docling, header-aware chunking, incremental indexing) · agent evaluation harnesses · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
+**GenAI** · LangGraph · LangChain · Google ADK · MCP (FastMCP) · text-to-SQL and text-to-Cypher agents · agentic browser automation (Playwright, crawl4ai, CDP) · RAG (Docling, header-aware chunking, incremental indexing) · agent evaluation harnesses · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
 
-**ML & distributed training** · XGBoost · scikit-learn · Ray (Tune, Train, Data) · Optuna · ASHA · distributed HPO
+**ML & distributed training** · XGBoost · scikit-learn · Ray (Tune, Train, Data) · Optuna · ASHA · distributed HPO · LoRA/PEFT fine-tuning (MPS and CUDA)
 
 **MLOps** · Kubeflow Pipelines · Airflow · dbt · Feast · MLflow · BentoML · Evidently (drift) · DVC
 
