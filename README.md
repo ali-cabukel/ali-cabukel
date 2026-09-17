@@ -42,22 +42,22 @@ The modelling decisions are the point: `total_amount` is excluded because it con
 
 Small, focused tools for production LLM and ML work.
 
-| Project                                                     | What it does                                              |
-| ----------------------------------------------------------- | --------------------------------------------------------- |
-| **[jsonguard](https://github.com/ali-cabukel/jsonguard)**   | Extract, repair, and validate JSON from LLM responses     |
-| **[promptreg](https://github.com/ali-cabukel/promptreg)**   | Pytest-style regression tests for prompts                 |
+| Project | What it does |
+| --- | --- |
+| **[jsonguard](https://github.com/ali-cabukel/jsonguard)** | Extract, repair, and validate JSON from LLM responses |
+| **[promptreg](https://github.com/ali-cabukel/promptreg)** | Pytest-style regression tests for prompts |
 | **[modeldebug](https://github.com/ali-cabukel/modeldebug)** | Diagnostic checks that explain why an ML model is failing |
 
 ## Agents & applications
 
-| Project                                                           | What it does                                                                                                                                                                                                    |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[threadneedle](https://github.com/ali-cabukel/threadneedle)**   | UK macro policy RAG over Bank of England, ONS and HM Treasury sources — Docling parsing, header-aware chunking into Chroma, and a LangGraph tool-calling agent that filters by document edition and pulls live ONS figures rather than quoting stale PDF numbers |
-| **[waggle](https://github.com/ali-cabukel/waggle)**               | Agentic web scraping platform — plan / execute / repair loop over Playwright, crawl4ai, and remote CDP engines, with scheduled runs, a Celery job backend, and a WebSocket chatbot over the scraped store |
-| **[klaxon](https://github.com/ali-cabukel/klaxon)**                 | Incident management desk — SQLite issue store behind a FastAPI REST surface, the same tools exposed in-process or over MCP stdio, and a LangGraph agent driven by Slack slash commands with HMAC verification and 3-second ack |
-| **[tradenet-chat](https://github.com/ali-cabukel/tradenet-chat)** | Conversational agent generating read-only Cypher against a Neo4j trade graph (FastAPI + React, OpenAI or local Ollama)                                                                                          |
-| **[tissue-bot](https://github.com/ali-cabukel/tissue-bot)**       | Collects GitHub repo and issue data, then analyses and resolves issues with LangGraph agents (FastAPI + Next.js)                                                                                                |
-| **[marti-io](https://github.com/ali-cabukel/marti-io)**           | Multi-agent personal assistant hub (FastAPI + LangGraph)                                                                                                                                                       |
+| Project | What it does |
+| --- | --- |
+| **[threadneedle](https://github.com/ali-cabukel/threadneedle)** | UK macro policy RAG over Bank of England, ONS and HM Treasury sources — Docling parsing, header-aware chunking into Chroma, and a LangGraph tool-calling agent that filters by document edition and pulls live ONS figures rather than quoting stale PDF numbers |
+| **[waggle](https://github.com/ali-cabukel/waggle)** | Agentic web scraping platform — plan / execute / repair loop over Playwright, crawl4ai, and remote CDP engines, with scheduled runs, a Celery job backend, and a WebSocket chatbot over the scraped store |
+| **[klaxon](https://github.com/ali-cabukel/klaxon)** | Incident management desk — SQLite issue store behind a FastAPI REST surface, the same tools exposed in-process or over MCP stdio, and a LangGraph agent driven by Slack slash commands with HMAC verification and 3-second ack |
+| **[tradenet-chat](https://github.com/ali-cabukel/tradenet-chat)** | Conversational agent generating read-only Cypher against a Neo4j trade graph (FastAPI + React, OpenAI or local Ollama) |
+| **[tissue-bot](https://github.com/ali-cabukel/tissue-bot)** | Collects GitHub repo and issue data, then analyses and resolves issues with LangGraph agents (FastAPI + Next.js) |
+| **[marti-io](https://github.com/ali-cabukel/marti-io)** | Multi-agent personal assistant hub (FastAPI + LangGraph) |
 
 ## ML platform & training
 
@@ -68,11 +68,12 @@ Small, focused tools for production LLM and ML work.
 
 ## Data & analysis
 
-| Project                                                         | What it does                                                                    |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| **[tradenet](https://github.com/ali-cabukel/tradenet)**         | Bilateral trade data from UN Comtrade, modelled as a network for graph analysis |
-| **[policritique](https://github.com/ali-cabukel/policritique)** | UK election results, MPs, and party policy data collected for analysis          |
-| **[supamarkt](https://github.com/ali-cabukel/supamarkt)**       | Intraday market data and rule-based trading signals                             |
+| Project | What it does |
+| --- | --- |
+| **[tickhouse](https://github.com/ali-cabukel/tickhouse)** | Tick-to-dashboard market data pipeline — Kafka trades consumed by a ClickHouse Kafka engine table, persisted through a materialized view, and rolled into 1-minute OHLCV candles by an AggregatingMergeTree that maintains aggregate states incrementally rather than recomputing. A Strawberry GraphQL API exposes purpose-built fields (candles, VWAP, order-flow imbalance) instead of generic table access, with server-side parameter binding, capped windows and row limits, and a `priceTicks` WebSocket subscription driving a React/urql dashboard. Decimal prices stay strings end to end; volumes use a 64-bit scalar because GraphQL `Int` overflows. Synthetic GBM feed, swappable for a real one |
+| **[tradenet](https://github.com/ali-cabukel/tradenet)** | Bilateral trade data from UN Comtrade, modelled as a network for graph analysis |
+| **[policritique](https://github.com/ali-cabukel/policritique)** | UK election results, MPs, and party policy data collected for analysis |
+| **[supamarkt](https://github.com/ali-cabukel/supamarkt)** | Intraday market data and rule-based trading signals |
 
 ---
 
@@ -80,7 +81,7 @@ Small, focused tools for production LLM and ML work.
 
 **Languages** · Python · SQL · TypeScript
 
-**Backend & data** · FastAPI · Flask · SQLAlchemy · PostgreSQL · SQLite · MongoDB · Neo4j · Redis · Kafka · Celery · Spark
+**Backend & data** · FastAPI · Flask · SQLAlchemy · PostgreSQL · SQLite · MongoDB · Neo4j · ClickHouse · Redis · Kafka · Celery · Spark · GraphQL (Strawberry)
 
 **GenAI** · LangGraph · LangChain · Google ADK · MCP (FastMCP) · text-to-SQL and text-to-Cypher agents · agentic browser automation (Playwright, crawl4ai, CDP) · RAG (Docling, header-aware chunking, incremental indexing) · agent evaluation harnesses · vector search (pgvector, Chroma) · LLM-as-judge evaluation · fine-tuning and serving (vLLM, Transformers)
 
@@ -90,7 +91,7 @@ Small, focused tools for production LLM and ML work.
 
 **Cloud & infra** · GCP (Vertex AI, BigQuery, BigQuery ML, Cloud Run, GKE, Dataflow, Cloud Data Fusion, Pub/Sub, Cloud Scheduler, Artifact Registry) · Azure · Docker · Terraform · Cloud Build · GitHub Actions · Prometheus · Grafana
 
-**Frontend** · React · Next.js
+**Frontend** · React · Next.js · urql
 
 ## Development workflow
 
