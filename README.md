@@ -70,7 +70,7 @@ Small, focused tools for production LLM and ML work.
 
 | Project | What it does |
 | --- | --- |
-| **[tickhouse](https://github.com/ali-cabukel/tickhouse)** | Tick-to-dashboard market data pipeline — Kafka trades consumed by a ClickHouse Kafka engine table, persisted through a materialized view, and rolled into 1-minute OHLCV candles by an AggregatingMergeTree that maintains aggregate states incrementally rather than recomputing. A Strawberry GraphQL API exposes purpose-built fields (candles, VWAP, order-flow imbalance) instead of generic table access, with server-side parameter binding, capped windows and row limits, and a `priceTicks` WebSocket subscription driving a React/urql dashboard. Decimal prices stay strings end to end; volumes use a 64-bit scalar because GraphQL `Int` overflows. Synthetic GBM feed, swappable for a real one |
+| **[tickhouse](https://github.com/ali-cabukel/tickhouse)** | Kafka trades into ClickHouse with incrementally maintained OHLCV candles, a GraphQL API and a live dashboard (synthetic feed) |
 | **[tradenet](https://github.com/ali-cabukel/tradenet)** | Bilateral trade data from UN Comtrade, modelled as a network for graph analysis |
 | **[policritique](https://github.com/ali-cabukel/policritique)** | UK election results, MPs, and party policy data collected for analysis |
 | **[supamarkt](https://github.com/ali-cabukel/supamarkt)** | Intraday market data and rule-based trading signals |
